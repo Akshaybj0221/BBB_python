@@ -21,7 +21,7 @@ for i in range(0,5):
     tB = input("Brightness Top LED? (0-7)")
     bB = input("Brightness Bottom LED? (0-7)")
     tBDC=2**tB
-    tBDC=2**bB
+    bBDC=2**bB
     if tBDC>100:
         tBDC=100
     if bBDC>100:
