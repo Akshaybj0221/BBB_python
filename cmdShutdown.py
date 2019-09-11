@@ -2,15 +2,17 @@ import os
 import Adafruit_BBIO.GPIO as GPIO
 from time import sleep
 
-inPin = "P8_17"
-GPIO.setup(inPin, GPIO.IN)
+powerButton = "P9_11"
+GPIO.setup(powerButton, GPIO.IN)
 
-pinState = GPIO.input(inPin)
+pinState = GPIO.input(powerButton)
 
-if (pinState == HIGH):
-    print "System is shutting down" 
-    sleep(1)
-    shutdownCmd = 'shutdown'
-    os.system(shutdownCmd)
-
+while (1):
+    if GPIO.input(powerButton):
+        print "System is shutting down"
+        sleep(1)
+        GPIO.cleanup()
+        shutdownCmd = 'echo temppwd | sudo -S shutdown now'
+        os.system(shutdownCmd)
+        sleep(0.2)
 
