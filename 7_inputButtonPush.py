@@ -10,18 +10,18 @@ GPIO.setup(bottomButton, GPIO.IN)
 while(1):
     if GPIO.input(topButton):
         print "Top button is ON"
-    else:
-        print "Top button OFF"
+   # else:
+   #     print "Top button OFF"
 
     if GPIO.input(bottomButton):
         print "Bottom button in ON"
-    else:
-        print "Bottom button in OFF"
+   # else:
+   #     print "Bottom button in OFF"
 
     if GPIO.input(topButton) and GPIO.input(bottomButton):
         break
 
     sleep(0.2)
 
-print "Good bye"
+print "\n\nGood bye"
 GPIO.cleanup()
